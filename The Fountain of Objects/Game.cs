@@ -32,57 +32,57 @@ namespace The_Fountain_of_Objects
             {
                 Dialogue.SelectBoardSize();
                 userInputHandler.SetUserInput(Console.ReadLine());
-                if (userInputHandler.InputValidationCheckDifficulty(Console.ReadLine()) == true) ;
+                if (userInputHandler.InputValidationCheckDifficulty(userInputHandler.GetUserInput()) == true) ;
                 {
                     board.SetBoardSize(userInputHandler.GetSize());
-                    fountain.EstablishFountain(board.GetSize());
+                    board.BoardBuilder(board.GetSize(), fountain);
                 }
 
             }
 
-            while (winStatus == false)
-            {
-                Dialogue.PlayerMove();
-                player.SetPlayerLocation(userInputHandler.InputValidationCheckPlayerMove(player.GetPlayerXLocation(), player.GetPlayerYLocation(), Console.ReadLine(), board.GetSize()));
-                dialogue.PlayerStatus(player.GetPlayerYLocation(),/*roomtrait*/, fountain.GetFountainOn());
+            /* while (winStatus == false)
+             {
+                 Dialogue.PlayerMove();
+                 player.SetPlayerLocation(userInputHandler.InputValidationCheckPlayerMove(player.GetPlayerXLocation(), player.GetPlayerYLocation(), Console.ReadLine(), board.GetSize()));
+                 dialogue.PlayerStatus(player.GetPlayerYLocation(),/*roomtrait*//*, fountain.GetFountainOn());
 
 
-            }
+             }
 
 
-             
+
+
+         }
+
+         public bool WinCheck()
+         {
+             if (playerLocation == (0, 0) && fountain.GetFountainOn() == true)
+             {
+                 winStatus = true;
+             }
+
+             if (winStatus == true)
+             {
+                 gameOn = false;
+             }
+             return gameOn;
+
+         }
+
+         //getters and setters
+         public bool GetGameOn()
+         {
+             return gameOn;
+         }
+
+         public void GetPlayerLocation(int X, int Y)
+         {
+             playerLocation.X = X;
+             playerLocation.Y = Y;
+         }*/
+
+
 
         }
-
-        public bool WinCheck()
-        {
-            if (playerLocation == (0, 0) && fountain.GetFountainOn() == true)
-            {
-                winStatus = true;
-            }
-
-            if (winStatus == true)
-            {
-                gameOn = false;
-            }
-            return gameOn;
-
-        }
-
-        //getters and setters
-        public bool GetGameOn()
-        {
-            return gameOn;
-        }
-
-        public void GetPlayerLocation(int X, int Y)
-        {
-            playerLocation.X = X;
-            playerLocation.Y = Y;
-        }
-
-        
-        
-
     }
 }
